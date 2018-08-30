@@ -8,6 +8,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 
 import DrawerNavigation from "./components/DrawerNavigation";
+import Main from "./components/Main";
 
 const drawerWidth = 240;
 
@@ -18,7 +19,7 @@ const styles = theme =>
       width: `calc(100% - ${drawerWidth}px)`
     },
     appFrame: {
-      height: 440,
+      minHeight: 440,
       zIndex: 1,
       overflow: "hidden",
       position: "relative",
@@ -35,32 +36,30 @@ const styles = theme =>
     toolbar: theme.mixins.toolbar
   });
 
-const App = ({ classes }) => {
-  console.log({ classes });
-  return (
-    <div className={classes.appFrame}>
-      <AppBar position="absolute" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="title" color="inherit">
-            Something Testing
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        variant="permanent"
-        classes={{ paper: classes.drawerPaper }}
-        anchor="left"
-      >
-        <div className={classes.toolbar} />
-        <Divider />
-        <DrawerNavigation />
-      </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-      </main>
-    </div>
-  );
-};
+const App = ({ classes }) => (
+  <div className={classes.appFrame}>
+    <AppBar position="absolute" className={classes.appBar}>
+      <Toolbar>
+        <Typography variant="title" color="inherit">
+          HR Management Tool
+        </Typography>
+      </Toolbar>
+    </AppBar>
+    <Drawer
+      variant="permanent"
+      classes={{ paper: classes.drawerPaper }}
+      anchor="left"
+    >
+      <div className={classes.toolbar} />
+      <Divider />
+      <DrawerNavigation />
+    </Drawer>
+    <main className={classes.content}>
+      <div className={classes.toolbar} />
+      <Main />
+    </main>
+  </div>
+);
 
 App.propTypes = {
   classes: PropTypes.object.isRequired
