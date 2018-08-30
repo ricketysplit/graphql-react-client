@@ -1,0 +1,10 @@
+type Employee {
+    id: ID,
+    name: String,
+    position: String,
+    reportsTo: Employee
+}
+
+type Query {
+    employees: [Employee]
+}

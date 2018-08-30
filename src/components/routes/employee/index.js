@@ -17,7 +17,7 @@ const styles = theme => ({
 const Employee = ({ classes, employee }) => (
   <Paper className={classes.employeePaper}>
     <Typography variant="headline" component="h3">
-      {employee.name}
+      {employee ? employee.name : "Not Found"}
     </Typography>
   </Paper>
 );
